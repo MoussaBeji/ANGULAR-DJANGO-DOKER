@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "66978558-31ad-4dc4-8dda-b1c030b82763",
+		"name": "test-labeling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/exportfile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"document\":\"Baccaloria degree in computer science and 5 years of experience in big data and degital transformation\",\n    \"annotation\":[\n         {\"start\": 0,\n          \"end\": 10, \n          \"label\": \"DIPLOMA\", \n          \"text\":\"Baccaloria\"},\n          {\"start\": 21,\n          \"end\": 37, \n          \"label\": \"DIPLOMA_MAJOR\", \n          \"text\":\"computer science\"},\n          {\"start\": 42,\n          \"end\": 63, \n          \"label\": \"Experience\", \n          \"text\":\"5 years of experience\"},\n          {\"start\": 67,\n          \"end\": 75, \n          \"label\": \"SKILLS\", \n          \"text\":\"big data\"},\n          {\"start\": 80,\n          \"end\": 102, \n          \"label\": \"SKILLS\", \n          \"text\":\"degital transformation\"}\n          ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/exportfile",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"exportfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/label/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"LabelId\": 3,\n        \"LabelName\": \"DIPLOMA\",\n        \"Description\": \"Diploma tag\",\n        \"Color\": \"brown\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/label/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"label",
+						""
+					]
+				},
+				"description": "get all tags"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/label/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"LabelId\": 3,\n        \"LabelName\": \"DIPLOMA\",\n        \"Description\": \"Diploma tag\",\n        \"Color\": \"brown\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/label/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"label",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/label/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/label/40",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"label",
+						"40"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/label/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"LabelId\": 39,\n        \"LabelName\": \"DIPLOMA\",\n        \"Description\": \"Diploma tag\",\n        \"Color\": \"orange\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/label/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"label",
+						""
+					]
+				},
+				"description": "update tag informations"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

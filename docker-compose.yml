@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  nginx:
+    depends_on:
+      - client
+      - backend
+    restart: always # because it is routing traffic to our entire app
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - '80:80'
+  client:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    
+    volumes:
+      - ./frontend:/app # Inside the container, don't try to override this folder, just leave as is
+    restart: on-failure
+    container_name: client
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    restart: on-failure
+    container_name: backend
+    volumes:
+      - ./backend:/code # Inside the container, don't try to override this folder, just leave as is
+   
